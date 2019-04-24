@@ -1,0 +1,306 @@
+<!doctype html>
+
+<!--
+Este documento se compuso con harto copy/paste
+1. El Starter Template de Bootstrap - en https://getbootstrap.com/docs/4.3/getting-started/introduction/
+2. El menú lo copiamos de los ejemplos de Bootstrap - https://getbootstrap.com/docs/4.3/examples/
+3. El header con un video lo copiamos de Startbootrap - https://startbootstrap.com/snippets/video-header/
+4. Luego, se agrega la biblioteca de Leaflet (que pueden copiar de ejercicios de las clases 2 y 3) - https://leafletjs.com/examples/quick-start/
+5. Finalmente, cuando intentamos programar la aparición automática de puntos en Leaflet nos damos cuenta que el jquery.slim.min.js no comprende la función $.getJSON(). Por eso:
+5.1. Donde decía:
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+5.2. Ahora debe decir:
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+-->
+
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Estadios de Primera División</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+</head>
+
+<body id="top">
+  <nav class="navbar navbar-expand-md fixed-top navbar-dark navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#top">Bienvenidos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample01">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#map">Mapa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#detalles">Detalles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#novedad">Novedad</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+        <div class="overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <!--encontré un video de un condor-->
+            <source src="estadio.mp4" type="video/mp4">
+        </video>
+        <div class="container h-100">
+            <div class="d-flex h-100 text-center align-items-center">
+                <div class="w-100 text-white">
+                    <h1 class="display-3" id="titulo">Estadios</h1>
+                    <p class="lead mb-0">de la primera división del fútbol chileno</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="map">
+        <div id="mapid" style="width: 100%; height: 70vh;"></div>
+    </section>
+
+    <section id="detalles" class="bg-light">
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-12 py-3">
+                Selecciona región
+                <select id="selector" onchange="mostrador()">
+                    <option>Todos los estadios</option>
+                    <option>Región de Tarapacá</option>
+                    <option>Región de Antofagasta</option>
+                    <option>Región de Atacama</option>
+                    <option>Región de Coquimbo</option>
+                    <option>Región de Valparaíso</option>
+                    <option>Región Metropolitana</option>
+                    <option>Región de O'Higgins</option>
+                    <option>Región del Maule</option>
+                    <option>Región del Biobío</option>
+                    <option>Región de La Araucanía</option>
+                    <option>Región de Los Lagos</option>
+                    <option>Región de Aysén</option>
+                    <option>Región de Magallanes</option>
+                    <option>Región de Los Ríos</option>
+                    <option>Región de Arica y Parinacota</option>
+                    <option>Región de Ñuble</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="detalles" class="bg-light">
+        <div class="container">
+
+          <div class="row py-3">
+
+            <div class="card-columns" id="info">
+
+                <!--aquí dentro va lo que mande el $("#estadios").append()-->
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section id="novedad">
+        <!--aquí coloco la "visualización"-->
+    </section>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row small py-2 color text-light">
+                <div class="col-sm-6 py-3">Seminario de Gráfica Computacional I</div>
+                <div class="col-sm-6 py-3 text-md-right">Fernando Catalán Bachiloglu © 2019</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        // Lo primero es obtener un JSON y parsearlo en una variable de nombre data
+        $.getJSON("https://api.myjson.com/bins/16kt2o", function(data) {
+            // Si imprimes data en consola logras dos cosas
+            // Lo primero es comprobar el parseo de JSON requerido
+            // Lo segundo es conocer la estructura del JSON parseado
+            console.log(data);
+            // Luego puedes colocar el mapa, seteando un centro y zoom
+            var mymap = L.map('mapid').setView([-30, -70], 4);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                maxZoom: 100,
+                id: 'mapbox.streets' //otras opciones: mapbox.satellite, mapbox.streets, mapbox.dark, mapbox.light
+            }).addTo(mymap);
+            // Después puedes explorar el arreglo en la variable de nombre data con un ciclo for
+                // con esto se agregan puntos en el plano por cada dato
+
+                // aprovechando el ciclo for, podemos crear otros elementos, fuera del mapa
+                // revisen el primer ejemplo en https://getbootstrap.com/docs/4.0/components/card/
+
+
+                var verdeicon = L.icon({
+                  iconUrl: 'green-pin.png',
+                  iconSize: [20, 32]
+                });
+                var rojoicon = L.icon({
+                  iconUrl: 'red-pin.png',
+                  iconSize: [20, 32]
+                });
+
+
+                for (var x = 0; x < data.length; x++) {
+                  if(parseInt(data[x].capacidad) >= 40000){
+                    L.marker([data[x].coordenadas[0], data[x].coordenadas[1]], {icon: verdeicon}).addTo(mymap).bindPopup("<dl><dt>"+data[x].nombreEstadio+"</dt><dd>"+data[x].equipo+"</dt><dd>"+'Apto para un mundial'+"</dd></dl>").closePopup();
+                  } else {
+                    L.marker([data[x].coordenadas[0], data[x].coordenadas[1]], {icon: rojoicon}).addTo(mymap).bindPopup("<dl><dt>"+data[x].nombreEstadio+"</dt><dd>"+data[x].equipo+"</dt><dd>"+'No apto para un mundial'+"</dd></dl>").closePopup();
+                  }
+
+                var coordlink = 'https://www.google.com/maps/@'+data[x].coordenadas[0]+','+data[x].coordenadas[1]+',17z';
+                console.log(coordlink);
+
+
+                    var segundo =   "<div class=\"card " + data[x].region + "\">";
+                        var tercero =   "<figure><img src=\"" + data[x].foto + "\" class=\"card-img-top\"> </figure>";
+                        var cuarto  =   "<div class=\"card-body\">";
+                            var quinto  =   "<h5 class=\"card-title\">" + data[x].nombreEstadio + "</h5>"
+                            var sexto   =   "<p class=\"card-text\">" + data[x].equipo + "</p>";
+                            var septimo =   "<p class=\"card-text\">" + data[x].capacidad + " espectadores</p>";
+                              var octavo  =   "</div>";
+                      if (parseInt(data[x].capacidad) >= 40000) {
+                        var noveno  =   "<p id=\"novenob\" class=\"card-text p-3\">Apto para un mundial</p>"
+
+                      }
+
+                      else {
+                        var noveno = "<p id=\"noveno\" class=\"card-text p-3\">No es apto para un mundial</p>"
+                      }
+
+
+                    var decimo  =   "<a href=\"" + coordlink + "\" target=\"_blank\" class=\"btn btn-light col-12 py-3\">Mapa</a>";
+                            var once  =   "</div>";
+                // esto se agrega tantas veces como puntos en el mapa, porque estamos dentro del mismo ciclo for
+                $("#info").append(segundo + tercero + cuarto + quinto + sexto + septimo + octavo + noveno + decimo+ once);
+            }
+        });
+
+        $(document).scroll(function(){
+          if ($(this).scrollTop() > 650) {
+            $('nav').addClass("color");
+          } else {
+            $('nav').removeClass("color");
+      }
+   });
+
+
+
+   function mostrador() {
+
+             var x = document.getElementById("selector").value;
+             console.log(x);
+
+             if (x.includes("Metropolitana")) {
+                 $(".metropolitana").show();
+                 $(".valparaiso, .ohiggins, .biobio, .coquimbo, .antofagasta, .maule, .tarapaca, .atacama").hide()
+             } else if (x.includes("Valparaíso")) {
+                 $(".valparaiso").show()
+                 $(".metropolitana, .ohiggins, .biobio, .coquimbo, .antofagasta, .maule, .tarapaca, .atacama").hide()
+             } else if (x.includes("O'Higgins")) {
+                 $(".ohiggins").show();
+                 $(".valparaiso, .metropolitana, .biobio, .coquimbo, .antofagasta, .maule, .tarapaca, .atacama").hide()
+             } else if (x.includes("Biobío")) {
+                 $(".biobio").show();
+                 $(".valparaiso, .ohiggins, .metropolitana, .coquimbo, .antofagasta, .maule, .tarapaca, .atacama").hide()
+             } else if (x.includes("Coquimbo")) {
+                 $(".coquimbo").show();
+                 $(".valparaiso, .ohiggins, .biobio, .metropolitana, .antofagasta, .maule, .tarapaca, .atacama").hide()
+             } else if (x.includes("Antofagasta")) {
+                 $(".antofagasta").show();
+                 $(".valparaiso, .ohiggins, .biobio, .coquimbo, .metropolitana, .maule, .tarapaca, .atacama").hide()
+             } else if (x.includes("Maule")) {
+                 $(".antofagasta").show();
+                 $(".valparaiso, .ohiggins, .biobio, .coquimbo, .antofagasta, .metropolitana, .tarapaca, .atacama").hide()
+             } else if (x.includes("Tarapacá")) {
+                 $(".tarapaca").show();
+                 $(".valparaiso, .ohiggins, .biobio, .coquimbo, .antofagasta, .maule, .metropolitana, .atacama").hide()
+             } else if (x.includes("Atacama")) {
+                 $(".atacama").show();
+                 $(".valparaiso, .ohiggins, .biobio, .coquimbo, .antofagasta, .maule, .tarapaca, .metropolitana").hide()
+             } else if (x.includes("Todos")){
+                $(".valparaiso, .ohiggins, .biobio, .coquimbo, .antofagasta, .maule, .tarapaca, .atacama, .metropolitana").show()
+             }
+             else {
+                 $(".valparaiso, .ohiggins, .biobio, .coquimbo, .antofagasta, .maule, .tarapaca, .atacama, .metropolitana").hide()
+
+             }
+
+         } // aquí cerramos la función que trabaja con el select
+
+
+
+        //Agrego lo siguiente para que al clic del menú la página suba y baje en 1 segundo, suavecito
+        $('a[href*="#"]:not([href="#"])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+              if (target.length) {
+                $('html, body').animate({
+                  scrollTop: (target.offset().top - 54)
+                }, 1000);
+                return false;
+              }
+            }
+        });
+    </script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+<script>
+    var a;
+    var b;
+    var c;
+
+    function preload(){
+      a = loadJSON("https://api.myjson.com/bins/16kt2o");
+    }
+
+    function setup() {
+      createCanvas(windowWidth,500).parent("novedad");
+      background(230);
+      fill(0);
+      noStroke();
+      textAlign(CENTER);
+      rectMode(CENTER);
+      textSize(18);
+      text('Capacidad de los estadios', width/2, 100);
+      for(var y = 0; y < 16; y++) {
+        b = int(a[y].capacidad);
+        c = a[y].nombreEstadio;
+    
+        print(b);
+        print(c);
+    
+        ellipse((width/10)*(y+0.5), height/2, b/1000, b/1000);
+        textSize(12);
+        text(c, (width/10)*(y+0.5), (height/2)+80, 75, 75);
+      }
+    } 
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+// 20190423154620
+// https://api.myjson.com/bins/lgxr0
+
+[
+  {
+    "equipo": "Colo Colo",
+    "nombreEstadio": "Monumental David Arellano",
+    "capacidad": "47347",
+    "region":"metropolitana",
+    "coordenadas": [
+      -33.506523,
+      -70.606063
+    ],
+    "foto": "http://static.t13.cl/images/sizes/1200x675/1538957767-estadio.jpg"
+  },
+  {
+    "equipo": "Union Española",
+    "nombreEstadio": "Santa Laura",
+    "capacidad": "19000",
+    "region":"metropolitana",
+    "coordenadas": [
+      -33.404292,
+      -70.658654
+    ],
+    "foto": "http://www.adnradio.cl/images/3723600_n_vir3.jpg?u=141220"
+  },
+  {
+    "equipo": "Union La Calera",
+    "nombreEstadio": "Municipal Nicolás Chahuán Nazar",
+    "capacidad": "9200",
+    "region":"valparaiso",
+    "coordenadas": [
+      -32.78417,
+      -71.200188
+    ],
+    "foto": "https://s2.latercera.com/wp-content/uploads/2019/01/la-calera-mop-chile.jpg"
+  },
+  {
+    "equipo": "Universidad Católica",
+    "nombreEstadio": "San Carlos de Apoquindo",
+    "capacidad": "14880",
+    "region":"metropolitana",
+    "coordenadas": [
+      -33.395918,
+      -70.500529
+    ],
+    "foto": "https://media-cdn.tripadvisor.com/media/photo-s/0a/20/47/2f/estadio-e-cercado-por.jpg"
+  },
+  {
+    "equipo": "O'Higgins",
+    "nombreEstadio": "El Teniente",
+    "capacidad": "15600",
+    "region":"ohiggins",
+    "coordenadas": [
+      -34.177577,
+      -70.737495
+    ],
+    "foto": "https://www.futbolred.com/files/article_main/uploads/2019/01/17/5c40fe8423d3b.jpeg"
+  },
+  {
+    "equipo": "Huachipato",
+    "nombreEstadio": "CAP",
+    "capacidad": "10500",
+    "region":"biobio",
+    "coordenadas": [
+      -36.755079,
+      -73.107906
+    ],
+    "foto": "https://media-cdn.tripadvisor.com/media/photo-s/09/19/10/96/estadio-compania-de-acero.jpg"
+  },
+  {
+    "equipo": "Coquimbo Unido",
+    "nombreEstadio": "Francisco Sánchez Rumoroso",
+    "capacidad": "18750",
+    "region":"coquimbo",
+    "coordenadas": [
+      -29.965181,
+      -71.338359
+    ],
+    "foto": "http://www.diarioeldia.cl/sites/default/files/styles/flexslider_full/public/072016/_acf4597.jpg?itok=h1dT_w2p"
+  },
+  {
+    "equipo": "Antofagasta",
+    "nombreEstadio": "Regional Calvo y Bascuñán",
+    "capacidad": "21178",
+    "region":"antofagasta",
+    "coordenadas": [
+      -23.670039,
+      -70.40451
+    ],
+    "foto": "http://static.t13.cl/images/original/2015/04/1428775268_calvo-y-bascunan.jpg"
+  },
+  {
+    "equipo": "Palestino",
+    "nombreEstadio": "Municipal de La Cisterna",
+    "capacidad": "8000",
+    "region":"metropolitana",
+    "coordenadas": [
+      -33.520576,
+      -70.673075
+    ],
+    "foto": "http://as01.epimg.net/chile/imagenes/2017/09/22/futbol/1506089863_174732_1506089973_noticia_normal.jpg"
+  },
+  {
+    "equipo": "Curicó Unido",
+    "nombreEstadio": "La Granja",
+    "region":"maule",
+    "capacidad": "8278",
+    "coordenadas": [
+      -34.974338,
+      -71.230672
+    ],
+    "foto": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Estadio_La_Granja..jpg"
+  },
+  {
+    "equipo": "Everton",
+    "nombreEstadio": "Sausalito",
+    "capacidad": "23423",
+    "region":"valparaiso",
+    "coordenadas": [
+      -33.014345,
+      -71.535395
+    ],
+    "foto": "https://media-cdn.tripadvisor.com/media/photo-s/08/5a/2c/a0/getlstd-property-photo.jpg"
+  },
+  {
+    "equipo": "Audax Italiano",
+    "nombreEstadio": "Bicentenario de La Florida",
+    "capacidad": "12000",
+    "region":"metropolitana",
+    "coordenadas": [
+      -33.540547,
+      -70.578244
+    ],
+    "foto": "http://www.judsonyolivos.cl/wp-content/uploads/2012/01/florida_PORTADA.jpg"
+  },
+  {
+    "equipo": "Universidad de Concepción",
+    "nombreEstadio": "Municipal Ester Roa Rebolledo",
+    "capacidad": "30448",
+    "region":"biobio",
+    "coordenadas": [
+      -36.815273,
+      -73.023703
+    ],
+    "foto": "https://images.adsttc.com/media/images/5668/9afc/e58e/ceb7/8300/0039/large_jpg/15.jpg?1449695981"
+  },
+  {
+    "equipo": "Deportes Iquique",
+    "nombreEstadio": "Tierra de Campeones",
+    "capacidad": "12000",
+    "region":"tarapaca",
+    "coordenadas": [
+      -20.242267,
+      -70.133171
+    ],
+    "foto": "http://static.t13.cl/images/sizes/1200x675/1431118446_auno482291.jpg"
+  },
+  {
+    "equipo": "Universidad de Chile",
+    "nombreEstadio": "Nacional Julio Martínez Prádanos",
+    "capacidad": "48665",
+    "region":"metropolitana",
+    "coordenadas": [
+      -33.46444,
+      -70.610655
+    ],
+    "foto": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Estadio_Nacional_Julio_Mart%C3%ADnez_Pradanos.jpg"
+  },
+  {
+    "equipo": "Cobresal",
+    "nombreEstadio": "El Cobre",
+    "capacidad": "12000",
+    "region":"atacama",
+    "coordenadas": [
+      -26.251865,
+      -69.628689
+    ],
+    "foto": "http://static.t13.cl/images/original/2015/04/1428356968_auno471915.jpg"
+  }
+]
