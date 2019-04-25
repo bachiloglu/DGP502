@@ -270,12 +270,11 @@ Este documento se compuso con harto copy/paste
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
 <script>
-    var a;
-    var b;
-    var c;
+    var datos;
+    var z;
 
     function preload(){
-      a = loadJSON("https://api.myjson.com/bins/16kt2o");
+      datos = loadJSON("https://api.myjson.com/bins/16kt2o");
     }
 
     function setup() {
@@ -286,19 +285,25 @@ Este documento se compuso con harto copy/paste
       textAlign(CENTER);
       rectMode(CENTER);
       textSize(18);
-      text('Capacidad de los estadios', width/2, 100);
-      for(var y = 0; y < 16; y++) {
-        b = int(a[y].capacidad);
-        c = a[y].nombreEstadio;
-    
-        print(b);
-        print(c);
-    
-        ellipse((width/10)*(y+0.5), height/2, b/1000, b/1000);
+      text('Capacidad de los estadios', width/2, 50);
+      for(var x = 0; x < 8; x++) {
+        z = 0.8;
+        ellipse((width/9)*(x+1), (height/3)*z, datos[x].capacidad/1000, datos[x].capacidad/1000);
         textSize(12);
-        text(c, (width/10)*(y+0.5), (height/2)+80, 75, 75);
+        text(datos[x].nombreEstadio, (width/9)*(x+1), (height/2)-30, 75, 75);
       }
+      for(var y = 0; y < 8; y++) {
+        z = 1.8;
+        ellipse((width/9)*(y+1), (height/3)*z, datos[8+y].capacidad/1000, datos[8+y].capacidad/1000);
+        textSize(12);
+        text(datos[8+y].nombreEstadio, (width/9)*(y+1), (height/2)+130, 75, 75);
+      }
+
+
+      
     } 
+
+
 </script>
 
 </body>
