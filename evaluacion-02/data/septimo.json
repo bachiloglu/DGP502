@@ -1,0 +1,417 @@
+[
+  {
+    "nombre": "Taller de Diseño Gráfico VI",
+    "codigo": "DGP501",
+    "creditaje": 9,
+    "directas": 6,
+    "dedicacion": [
+      {
+        "nombre": "sofia yastremiz",
+        "horas": [
+          14,
+          12,
+          5,
+          0
+        ]
+      },
+      {
+        "nombre": "Benjamín Vidal",
+        "horas": [
+          10,
+          4,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Cristina Grandon",
+        "horas": [
+          9,
+          5,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Julio Lara",
+        "horas": [
+          11,
+          11,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Fernando Catalan",
+        "horas": [
+          8,
+          6,
+          0,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "nombre": "Seminario Gráfica Computacional I",
+    "codigo": "DGP502",
+    "creditaje": 3,
+    "directas": 3,
+    "dedicacion": [
+      {
+        "nombre": "sofia yastremiz",
+        "horas": [
+          3.25,
+          3.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Benjamin Vidal",
+        "horas": [
+          4,
+          4,
+          5,
+          4
+        ]
+      },
+      {
+        "nombre": "Cristina Grandon",
+        "horas": [
+          3.25,
+          3.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Julio Lara",
+        "horas": [
+          3.25,
+          3.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Fernando Catalan",
+        "horas": [
+          4,
+          5,
+          4,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "nombre": "Seminario Producción Audiovisual I",
+    "codigo": "DGP503",
+    "creditaje": 3,
+    "directas": 3,
+    "dedicacion": [
+      {
+        "nombre": "sofia yastremiz",
+        "horas": [
+          3.25,
+          3.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Benjamin Vidal",
+        "horas": [
+          6,
+          4,
+          3,
+          4
+        ]
+      },
+      {
+        "nombre": "Cristina Grandon",
+        "horas": [
+          3.25,
+          4.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Julio Lara",
+        "horas": [
+          4.25,
+          5.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Fernando Catalan",
+        "horas": [
+          4,
+          5,
+          6,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "nombre": "Seminario de Diseño Gráfico I",
+    "codigo": "DGP504",
+    "creditaje": 5,
+    "directas": 3,
+    "dedicacion": [
+      {
+        "nombre": "sofia yastremiz",
+        "horas": [
+          0,
+          5,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Benjamin Vidal",
+        "horas": [
+          5,
+          5,
+          3,
+          2
+        ]
+      },
+      {
+        "nombre": "Cristina Grandon",
+        "horas": [
+          0,
+          6,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Julio Lara",
+        "horas": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Fernando Catalan",
+        "horas": [
+          2,
+          5,
+          8,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "nombre": "Publicidad",
+    "codigo": "DGP505",
+    "creditaje": 3,
+    "directas": 3,
+    "dedicacion": [
+      {
+        "nombre": "sofia yastremiz",
+        "horas": [
+          5.25,
+          3.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Benjamin Vidal",
+        "horas": [
+          4,
+          4,
+          8,
+          4
+        ]
+      },
+      {
+        "nombre": "Cristina Grandon",
+        "horas": [
+          5,
+          3.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Julio Lara",
+        "horas": [
+          5,
+          3.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Fernando Catalan",
+        "horas": [
+          3,
+          6.5,
+          5,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "nombre": "Seminario de Gestión I",
+    "codigo": "DGP506",
+    "creditaje": 3,
+    "directas": 3,
+    "dedicacion": [
+      {
+        "nombre": "sofia yastremiz",
+        "horas": [
+          24,
+          18,
+          12,
+          9
+        ]
+      },
+      {
+        "nombre": "Benjamin Vidal",
+        "horas": [
+          7,
+          6,
+          5,
+          5
+        ]
+      },
+      {
+        "nombre": "Cristina Grandon",
+        "horas": [
+          3.25,
+          3.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Julio Lara",
+        "horas": [
+          3.25,
+          3.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Fernando Catalan",
+        "horas": [
+          4,
+          6,
+          4,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "nombre": "Práctica Profesional I",
+    "codigo": "DGP507",
+    "creditaje": 2,
+    "directas": 0,
+    "dedicacion": [
+      {
+        "nombre": "sofia yastremiz",
+        "horas": [
+          2,
+          3,
+          2,
+          4
+        ]
+      },
+      {
+        "nombre": "Benjamin Vidal",
+        "horas": [
+          8,
+          6,
+          6,
+          6
+        ]
+      },
+      {
+        "nombre": "Cristina Grandon",
+        "horas": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Julio Lara",
+        "horas": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Fernando Catalan",
+        "horas": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "nombre": "Electivo III",
+    "codigo": "DE3",
+    "creditaje": 3,
+    "directas": 3,
+    "dedicacion": [
+      {
+        "nombre": "sofia yastremiz",
+        "horas": [
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "nombre": "Benjamin Vidal",
+        "horas": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Cristina Grandon",
+        "horas": [
+          0,
+          4.25,
+          0,
+          0
+        ]
+      },
+      {
+        "nombre": "Julio Lara",
+        "horas": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  }
+]
