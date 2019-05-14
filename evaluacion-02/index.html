@@ -16,7 +16,13 @@
             background: rgba(8, 94, 176, .25);
         }
         p{
-            line-height: 1.75;
+            line-height: 1.75
+        }
+
+        #arriba{
+          background-image: linear-gradient(to bottom, rgba(0, 0, 0, .4) 0%, rgba(0, 0, 0, .8) 100%), url(http://www.uchile.cl/uchile/ImageServlet?idDocumento=86362&indice=0);
+          background-repeat: no-repeat;
+          background-size:cover;
         }
     </style>
 </head>
@@ -25,22 +31,42 @@
     <section class="container">
       <div class="row py-5">
           <div class="col-12 border" id="arriba">
-              <h1 class="display-2 p-5">Calculadora de trabajo académico</h1>
+              <h1 class="display-2 p-5" style="color:rgb(255,255,255);">Calculadora de trabajo académico</h1>
           </div>
           <div class="col-12 col-sm-4 border">
               <h2 class="display-4">Sexto semestre</h2>
-              <p><a></a></p>
+              <p><a href="sexto.html">Sexto Semestre</a></p>
           </div>
           <div class="col-12 col-sm-4 border">
               <h2 class="display-4">Séptimo semestre</h2>
-              <p><a></a></p>
+              <p><a href="septimo.html">Séptimo semestre</a></p>
           </div>
           <div class="col-12 col-sm-4 border">
               <h2 class="display-4">Octavo semestre</h2>
-              <p><a></a></p>
+              <p><a href="octavo.html">Octavo Semestre</a></p>
           </div>
       </div>
     </section>
+
+    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Inicio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="sexto.html">Sexto semestre</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="septimo.html">Séptimo semestre</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="octavo.html">Octavo semestre</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
