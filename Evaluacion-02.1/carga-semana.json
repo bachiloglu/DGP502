@@ -1,0 +1,79 @@
+https://api.myjson.com/bins/inixb
+
+
+[
+  {
+    "nombre": "Taller de Diseño Gráfico V",
+    "codigo": "DGP501",
+    "creditaje": 9,
+    "directas": 6,
+    "dedicacion": [
+                    4,
+                    5,
+                    6,
+                    8
+                  ]
+                  
+  },
+  {
+    "nombre": "Seminario Gráfica Computacional I",
+    "codigo": "DGP502",
+    "creditaje": 3,
+    "directas": 3,
+    "dedicacion": [
+                    4,
+                    5,
+                    4,
+                    2.5
+                  ]
+  },
+  {
+    "nombre": "Seminario Producción Audiovisual II",
+    "codigo": "DGP503",
+    "creditaje": 3,
+    "directas": 3,
+    "dedicacion": [
+                    4,
+                    5,
+                    6,
+                    5.5
+                  ]
+  },
+  {
+    "nombre": "Seminario de Diseño Gráfico II",
+    "codigo": "DGP504",
+    "creditaje": 5,
+    "directas": 3,
+    "dedicacion": [
+                    2,
+                    5,
+                    8,
+                    7
+                  ]
+  },
+  {
+    "nombre": "Publicidad",
+    "codigo": "DGP505",
+    "creditaje": 3,
+    "directas": 3,
+    "dedicacion": [
+                    3,
+                    8,
+                    3,
+                    5.5
+                  ]
+  },
+  {
+    "nombre": "Seminario de Gestión I",
+    "codigo": "DGP506",
+    "creditaje": 3,
+    "directas": 3,
+    "dedicacion": [
+                    4,
+                    6,
+                    4,
+                    6.5
+                  ]
+  }
+]
+
