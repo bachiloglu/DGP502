@@ -5,6 +5,7 @@
       .blog-header {
           line-height: 1;
           border-bottom: 1px solid #e5e5e5;
+        
       }
 
       .blog-header-logo {
@@ -21,8 +22,9 @@
       h3,
       h4,
       h5,
-      h6 {
-          font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+      h6,
+      p {
+          font-family: 'Mandali', sans-serif;
       }
 
       .display-4 {
@@ -155,3 +157,14 @@
       opacity: 0.8;
       webkit-transition:0,5s;
     }
+
+
+   .enlaces{
+      text-decoration: none;
+      color: #959595;
+   }
+
+   .enlaces:hover{
+    text-decoration: none;
+    color: #454545;
+   }
