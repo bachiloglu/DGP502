@@ -45,8 +45,8 @@
                 </div>
             </header>
             <!-- Aquí va la visualización --->
-            <div class="p-4 p-md-5 rounded mover">
-                <div class="col-md-6 px-0" id="resultado">Aquí va una visualización</div>
+            <div class=" rounded mover">
+                <div id="resultado"></div>
             </div>
             <!-- Hasta aquí la visualizacion -->
             <!-- Aquí va lo de la izquierda -->
@@ -54,8 +54,8 @@
                 <div class="col">
                     <div class="row no-gutters  rounded overflow-hidden flex-md-row mb-4 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
-                            <h3 class="mb-3 blog-header font-weight-bold">Trabajo por curso</h3>
-                            <p class="card-text mb-auto">Esta visualización corresponde a una comaparción específica de las asignaturas de Fernando Catalán Bachiloglu. Tiene como objetivo comparar el trabajo que debería realizarse en cada uno de los ramos según sus créditos y la dedicación real a cada uno de ellos. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/inixb">este JSON</a>.</p>
+                            <h3 class="mb-3 blog-header font-weight-bold">Horas por semana</h3>
+                            <p class="card-text mb-auto">Esta visualización corresponde a una comaparción semanal (4 semanas de Mayo) del tiempo dedicado tanto en sala como fuera de ella a los 6 cursos que estoy cursando. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/inixb">este JSON</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -86,41 +86,92 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-    var dedicacionPromedio;
-    var url = "https://api.myjson.com/bins/inixb"
-    var total = 0;
+    var horas = [];
+    var suma = [];
+    var losPromedios = [];
+    var semanaUno = [];
+    var semanaDos = [];
+    var semanaTres = [];
+    var semanaCuatro = [];
 
+    $.getJSON("https://api.myjson.com/bins/qaz4x", function(data) {
+        console.log(data);
+        for (var i = 0; i < 6; i++) {
+            for (var j = 0; j < 1; j++) {
 
+                var x = data[i].dedicacion[0];
+                semanaUno.push(x);
 
-    function preload() {
-        datos = loadJSON(url);
-        console.log(datos)
-    }
+                var x = data[i].dedicacion[1];
+                semanaDos.push(x);
 
+                var x = data[i].dedicacion[2];
+                semanaTres.push(x);
 
-    function promedio() {
-        for (var x = 0; x < 6; x++) {
-            for (var y = 0; i < 6; y++) {
-                total = total + datos[x].dedicacion[y];
+                var x = data[i].dedicacion[3];
+                semanaCuatro.push(x);
 
 
             }
 
-        }
-        console.log(total);
-    }
 
+        }
+        console.log(semanaUno);
+        console.log(semanaDos);
+        console.log(semanaTres);
+        console.log(semanaCuatro);
+
+
+        function getSum(total, num) {
+            return (total + num)
+        }
+
+        semanaUno = semanaUno.reduce(getSum);
+        console.log(semanaUno);
+        semanaDos = semanaDos.reduce(getSum);
+        console.log(semanaDos);
+        semanaTres = semanaTres.reduce(getSum);
+        console.log(semanaTres);
+        semanaCuatro = semanaCuatro.reduce(getSum);
+        console.log(semanaCuatro);
+
+        losPromedios.push(semanaUno, semanaDos, semanaTres, semanaCuatro);
+        console.log(losPromedios);
+    })
+    </script>
+    <script>
+    var ramos;
+    var losCursos = [];
+    let circulo;
+
+    function preload() {
+        let losDatos = 'https://api.myjson.com/bins/qaz4x'
+        ramos = loadJSON(losDatos);
+    }
+    // var losPromedios = [Array(4) 0: 3.5 1: 5.75 2: 5.1666666666666673: 5.833333333333333length: 4]; si pongo los promedios aquí, sí se dibuja, sino no
     function setup() {
-        createCanvas(windowWidth, 500).parent("resultado");
-        background(120);
-        fill(0);
+        createCanvas(windowWidth-200, 350).parent("resultado").style("padding-left: 10%");
+        background(255);
         noStroke();
         textAlign(CENTER);
         rectMode(CENTER);
-        textSize(18);
-        //for(var i = 0; i < 6; i++) {
-        ellipse((width / 9) * (x + 1), (height / 3) * z, datos[x] / 1000, datos[x].capacidad / 1000);
+
+        for (var m = 0; m < losPromedios.length; m++) {
+            translate(0, 0);
+            fill(200, 0, 0);
+            rect(150, 100 + (m * 45), losPromedios[m] * (windowWidth/50), windowHeight/18);
+            fill(0, 255, 255);
+            //text('Semana ' + (m + 1), losPromedios[m]+ 100, 30);
+
+        }
+        
+        //console.log(ramos);
+
+        /*for (var z = 0; z < ramos.length; z++){
+            losCursos = losCursos.push(ramos[z].nombre);
+        }*/
 
     }
     </script>

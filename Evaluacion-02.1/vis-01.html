@@ -45,8 +45,8 @@
                 </div>
             </header>
             <!-- Aquí va la visualización --->
-            <div class="p-4 p-md-5 rounded mover">
-                <div class="col-md-6 px-0" id="resultado">Aquí va una visualización</div>
+            <div class="rounded mover">
+                <div class="text-center" id="visualizacion"></div>
             </div>
             <!-- Hasta aquí la visualizacion -->
             <!-- Aquí va lo de la izquierda -->
@@ -55,7 +55,7 @@
                     <div class="row no-gutters  rounded overflow-hidden flex-md-row mb-4 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
                             <h3 class="mb-3 blog-header font-weight-bold">Trabajo Global</h3>
-                            <p class="card-text mb-auto">Esta visualización corresponde a una comaparción global de todas las asignaturas de Fernando Catalán Bachiloglu. Tiene como objetivo entender a qué ramo se le está dedicando una mayor cantidad de tiempo. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/inixb">este JSON</a>.</p>
+                            <p class="card-text mb-auto">Esta visualización corresponde a una comaparción global de todos mis cursos. Tiene como objetivo entender a qué ramo se le está dedicando una mayor cantidad de tiempo. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/inixb">este JSON</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -65,11 +65,11 @@
                     <div class="row no-gutters rounded overflow-hidden flex-md-row mb-4 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
                             <h5 class="mb-3 blog-header font-weight-bold">Cursos</h5>
-                            <p class="mb-auto">
-                                <div class="los-cursos"></div>
-                            </p>
+                           
+                            <div id="los-cursos"> aqui deberia ir un texto </div>
+                            
                             <div class="row flex-nowrap justify-content-between">
-                                <div class="col-12 enlaces"><a href="vis-02.html">
+                                <div class="col-12 enlaces" id="cursos"><a href="vis-02.html">
                                         <p class="text-right enlaces">Siguiente</p>
                                     </a></div>
                             </div>
@@ -83,43 +83,77 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-    var dedicacionPromedio;
-    var url = "https://api.myjson.com/bins/inixb"
-    var total = 0;
+    var horas = [];
+    var suma = [];
+    var losPromedios = [];
 
-
-
-    function preload() {
-        datos = loadJSON(url);
-        console.log(datos)
-    }
-
-
-    function promedio() {
-        for (var x = 0; x < 6; x++) {
-            for (var y = 0; i < 6; y++) {
-                total = total + datos[x].dedicacion[y];
-
-
-            }
+    $.getJSON("https://api.myjson.com/bins/qaz4x", function(data) {
+        console.log(data);
+        for (var i = 0; i < 6; i++) {
+            var x = data[i].dedicacion;
+            horas.push(x);
 
         }
-        console.log(total);
-    }
+        console.log(horas);
+        for (var y = 0; y < 6; y++) {
+            for (var j = 0; j < 4; j++) {
+                var k = horas[y][j];
+                suma.push(k);
+            }
+        }
+        console.log(suma);
 
+
+        function getSum(total, num) {
+            return (total + num)
+        }
+        var primerCorte = (suma.slice(0, 4)).reduce(getSum) / 4;
+        console.log(primerCorte);
+        var segundoCorte = (suma.slice(4, 8)).reduce(getSum) / 4;
+        console.log(segundoCorte);
+        var tercerCorte = (suma.slice(8, 12)).reduce(getSum) / 4;
+        console.log(tercerCorte);
+        var cuartoCorte = (suma.slice(12, 16)).reduce(getSum) / 4;
+        console.log(cuartoCorte);
+        var quintoCorte = (suma.slice(16, 20)).reduce(getSum) / 4;
+        console.log(quintoCorte);
+        var sextoCorte = (suma.slice(20, 24)).reduce(getSum) / 4;
+        console.log(sextoCorte);
+
+        losPromedios.push(primerCorte, segundoCorte, tercerCorte, cuartoCorte, quintoCorte, sextoCorte);
+        losPromedios.sort(function(a, b) { return b - a });
+        console.log(losPromedios);
+    })
+    </script>
+    <script>
+    var ramos;
+    var losCursos = [];
+    let circulo;
+    function preload(){
+        let losDatos = 'https://api.myjson.com/bins/qaz4x'
+        ramos = loadJSON(losDatos);
+    }
+    // var losPromedios = [5.75, 5.5, 5.125, 5.125, 4.875, 3.875]; si pongo los promedios aquí, sí se dibuja, sino no
     function setup() {
-        createCanvas(windowWidth, 500).parent("resultado");
-        background(120);
-        fill(0);
+        createCanvas(windowWidth/2, 600).parent("visualizacion");
+        background(255);
         noStroke();
         textAlign(CENTER);
         rectMode(CENTER);
-        textSize(18);
-        //for(var i = 0; i < 6; i++) {
-        ellipse((width / 9) * (x + 1), (height / 3) * z, datos[x] / 1000, datos[x].capacidad / 1000);
+        fill(100,0,0,50);
+        for (var m = 0; m < losPromedios.length; m++) {
+            ellipse(width / 2, height / 2, losPromedios[m] * windowWidth/15, losPromedios[m] * windowWidth/15);
+        }
+        console.log(ramos);
 
-    }
+        /*for (var z = 0; z < ramos.length; z++){
+            losCursos = losCursos.push(ramos[z].nombre);
+        }*/
+
+    }   
+
     </script>
 </body>
 

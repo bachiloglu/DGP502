@@ -45,8 +45,8 @@
                 </div>
             </header>
             <!-- Aquí va la visualización --->
-            <div class="p-4 p-md-5 rounded mover">
-                <div class="col-md-6 px-0" id="resultado">Aquí va una visualización</div>
+            <div class="pt-5 rounded mover">
+                <div id="resultado"></div>
             </div>
             <!-- Hasta aquí la visualizacion -->
             <!-- Aquí va lo de la izquierda -->
@@ -55,7 +55,7 @@
                     <div class="row no-gutters  rounded overflow-hidden flex-md-row mb-4 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
                             <h3 class="mb-3 blog-header font-weight-bold">Estado de animo</h3>
-                            <p class="card-text mb-auto">Esta visualización corresponde a una línea de tiempo de estados de ánimo registrados en la aplicación Daylio. También se establece una relacación entre el estado de ánimo y las actividades que se registraron esa semana. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/inixb">este JSON</a>.</p>
+                            <p class="card-text mb-auto">Esta visualización corresponde a los estados de ánimo registrados en Mayo con la aplicación Daylio. Junto con ello, las actividades que se realizaron esos días. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/rfqt1 ">este JSON</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,6 @@
                                 <div class="col-12 enlaces"><a href="vis-03.html">
                                         <p class="text-left enlaces">Anterior</p>
                                     </a></div>
-                            
                             </div>
                         </div>
                     </div>
@@ -84,44 +83,97 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-    var dedicacionPromedio;
-    var url = "https://api.myjson.com/bins/inixb"
-    var total = 0;
+    var elContadorIncreible = 0;
+    var elContadorBien = 0;
+    var elContadorMeh = 0;
 
+    var contadorFAUinc=0;
+    var contadorFAUbien=0;
+    var contadorFAUmeh=0;
 
+    var boton;
+    var elCanvas;
 
     function preload() {
-        datos = loadJSON(url);
-        console.log(datos)
+        let losDatos = 'https://api.myjson.com/bins/rfqt1'
+        ramos = loadJSON(losDatos);
+        console.log(ramos);
+
+
     }
-
-
-    function promedio() {
-        for (var x = 0; x < 6; x++) {
-            for (var y = 0; i < 6; y++) {
-                total = total + datos[x].dedicacion[y];
-
-
-            }
-
-        }
-        console.log(total);
-    }
-
+    // var losPromedios = [Array(4) 0: 3.5 1: 5.75 2: 5.1666666666666673: 5.833333333333333length: 4]; si pongo los promedios aquí, sí se dibuja, sino no
     function setup() {
-        createCanvas(windowWidth, 500).parent("resultado");
-        background(120);
-        fill(0);
+        elCanvas = createCanvas(windowWidth, 400).parent("resultado");
+        background(255);
         noStroke();
         textAlign(CENTER);
         rectMode(CENTER);
-        textSize(18);
-        //for(var i = 0; i < 6; i++) {
-        ellipse((width / 9) * (x + 1), (height / 3) * z, datos[x] / 1000, datos[x].capacidad / 1000);
+
+        for (var m = 0; m < 31; m++) {
+
+                if (ramos[m].animo == "increible") {
+                    fill(240, 20, 20);
+                    elContadorIncreible += 1;
+                    circle(200, 300 / 2, elContadorIncreible * 20);
+
+                } else if (ramos[m].animo == "bien") {
+                    fill(240, 80, 80);
+                    elContadorBien += 1;
+                    circle(520, 300 / 2, elContadorBien * 20);
+                } else {
+                    fill(240, 150, 150);
+                    elContadorMeh += 1;
+                    circle(780, 300 / 2, elContadorMeh * 20);
+                }
+
+                for (var i = 0; i < 3; i++) {
+
+                    if (ramos[m].animo == "increible" && ramos[m].tiempo[i].u > 0) {
+                        contadorFAUinc+=1;
+                        fill(255,255,255);
+                        
+                    }
+
+                    else if (ramos[m].animo == "bien" && ramos[m].tiempo[i].u > 0) {
+                        contadorFAUbien+=1;
+                        fill(0,0,0);
+                    }
+
+                    else if (ramos[m].animo == "meh" && ramos[m].tiempo[i].u > 0) {
+                        contadorFAUmeh+=1;
+                    }
+
+                    text("Hubieron " + contadorFAUinc + " días en los que me sentí increíble estando en la FAU", 200, 240, 200,200);
+
+                    text("Hubieron " + contadorFAUbien + " días en los que me sentí bien estando en la FAU", 520, 190, 120, 120);
+
+                    text("Hubieron " + contadorFAUmeh + " días en los que me sentí meh! estando en la FAU", 780, 185, 120, 120);
+                }
+
+
+
+
+            
+
+        }
+        //console.log(ramos);
+        console.log(elContadorIncreible);
+        console.log(elContadorBien);
+        console.log(elContadorMeh);
+        fill(240, 20, 20);
+        text('¡Mi ánimo estuvo ' + elContadorIncreible + ' días increíble!', 200, 360);
+        fill(240, 80, 80);
+        text('¡Mi ánimo estuvo ' + elContadorBien + ' días bien!', 520, 360);
+        fill(240, 150, 150);
+        text('¡Mi ánimo estuvo ' + elContadorMeh + ' días meh!', 780, 360);
+
+
+
 
     }
+
     </script>
 </body>
-
 </html>

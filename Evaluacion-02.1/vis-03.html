@@ -45,8 +45,8 @@
                 </div>
             </header>
             <!-- Aquí va la visualización --->
-            <div class="p-4 p-md-5 rounded mover">
-                <div class="col-md-6 px-0" id="resultado">Aquí va una visualización</div>
+            <div class="rounded mover">
+                <div id="resultado"></div>
             </div>
             <!-- Hasta aquí la visualizacion -->
             <!-- Aquí va lo de la izquierda -->
@@ -55,7 +55,7 @@
                     <div class="row no-gutters  rounded overflow-hidden flex-md-row mb-4 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
                             <h3 class="mb-3 blog-header font-weight-bold">Tiempo invertido</h3>
-                            <p class="card-text mb-auto">Esta visualización corresponde a una comaparción del tiempo utilizado en la FAU y en el viaje hasta ella vs. el tiempo utilizado en casa para cada uno de los ramos. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/inixb">este JSON</a>.</p>
+                            <p class="card-text mb-auto">Esta visualización corresponde a una comparación entre el tiempo que paso en casa, la FAU y viajando hasta ella. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/134lsv">este JSON</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -86,41 +86,55 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-    var dedicacionPromedio;
-    var url = "https://api.myjson.com/bins/inixb"
-    var total = 0;
-
-
-
+    var paraMover=0;
     function preload() {
-        datos = loadJSON(url);
-        console.log(datos)
+        let losDatos = 'https://api.myjson.com/bins/134lsv'
+        ramos = loadJSON(losDatos);
+        console.log(ramos);
+
     }
+    // var losPromedios = [Array(4) 0: 3.5 1: 5.75 2: 5.1666666666666673: 5.833333333333333length: 4]; si pongo los promedios aquí, sí se dibuja, sino no
+    function setup() {
+        createCanvas(windowWidth, 500).parent("resultado");
+        background(255);
+        noStroke();
+        for (var m = 0; m < 31; m++) {
+            for (var i = 0; i < 3; i++) {
+                console.log(ramos[m].tiempo[i]);
+
+                fill(240, 100, 100);
 
 
-    function promedio() {
-        for (var x = 0; x < 6; x++) {
-            for (var y = 0; i < 6; y++) {
-                total = total + datos[x].dedicacion[y];
+                rect(paraMover+100, 0, 25, (ramos[m].tiempo[i].casa)*20);
+
+
+
+                fill(113, 229, 123);
+
+
+                rect(paraMover+100, 0, 25, (ramos[m].tiempo[i].viaje)*20);
+
+
+                fill(100, 155, 240);
+
+
+                rect(paraMover+100, 0, 25, (ramos[m].tiempo[i].u)*20);
+
 
 
             }
-
+            //text('Semana ' + (m + 1), losPromedios[m]+ 100, 30);
+            paraMover+=30;
+            text(ramos[m].dia.charAt(1))
         }
-        console.log(total);
-    }
 
-    function setup() {
-        createCanvas(windowWidth, 500).parent("resultado");
-        background(120);
-        fill(0);
-        noStroke();
-        textAlign(CENTER);
-        rectMode(CENTER);
-        textSize(18);
-        //for(var i = 0; i < 6; i++) {
-        ellipse((width / 9) * (x + 1), (height / 3) * z, datos[x] / 1000, datos[x].capacidad / 1000);
+        //console.log(ramos);
+
+        /*for (var z = 0; z < ramos.length; z++){
+            losCursos = losCursos.push(ramos[z].nombre);
+        }*/
 
     }
     </script>
