@@ -4,17 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ultraviolet/40/000000/edit.png">
     <meta name="autor" content="Fernando Catalán Bachiloglu">
     <meta name="description" content="Esta página corresponde a la evaluación 02 del seminario de gráfica computacional I a cargo del profesor Felipe Cortez.">
     <meta property="og:image" content="https://avatars1.githubusercontent.com/u/24626759?s=400&u=700c1ec8bf98726677e9eb2a437ec964f3c5a0ab&v=4">
     <meta property="og:description" content="Esta página corresponde a la evaluación 02 del seminario de gráfica computacional I a cargo del profesor Felipe Cortez.">
     <meta property="og:title" content="Mis visualizaciones">
+    <meta property="og:type" content="website">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Mis visualizaciones">
+    <meta property="twitter:description" content="Esta página corresponde a la evaluación 02 del seminario de gráfica computacional I a cargo del profesor Felipe Cortez.">
+    <meta property="og:title" content="Mis visualizaciones">
+    <meta property="twitter:image" content="https://avatars1.githubusercontent.com/u/24626759?s=400&u=700c1ec8bf98726677e9eb2a437ec964f3c5a0ab&v=4">
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Mandali&display=swap" rel="stylesheet">
     <title>Trabajo académico</title>
     <style>
-    .bd-placeholder-img {
+        .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
         -webkit-user-select: none;
@@ -70,9 +77,9 @@
                     <div class="row no-gutters rounded overflow-hidden flex-md-row mb-4 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
                             <h5 class="mb-3 blog-header font-weight-bold">Cursos</h5>
-                           
-                            <div id="los-cursos"> <!-- Lo de aquí se parentea desde el script --> </div>
-                            
+                            <div id="los-cursos">
+                                <!-- Lo de aquí se parentea desde el script -->
+                            </div>
                             <div class="row flex-nowrap justify-content-between">
                                 <div class="col-12 enlaces" id="cursos"><a href="vis-02.html">
                                         <p class="text-right enlaces">Siguiente</p>
@@ -86,39 +93,36 @@
         </div>
     </div>
     </div>
-
     <nav class="navbar fixed-bottom navbar-expand-md navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Mis visualizaciones</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Portada</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="vis-01.html">Global</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vis-02.html">Semanal</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vis-03.html">Casa/Viaje/FAU</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vis-04.html">Ánimo</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="info.html">Info</a>
-          </li>                           
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Mis visualizaciones</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Portada</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="vis-01.html">Global</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vis-02.html">Semanal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vis-03.html">Casa/Viaje/FAU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vis-04.html">Ánimo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="info.html">Info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -176,33 +180,33 @@
     let circulo;
     let color;
     var w;
-    function preload(){
+
+    function preload() {
         let losDatos = 'https://api.myjson.com/bins/qaz4x'
         ramos = loadJSON(losDatos);
     }
 
     function setup() {
 
-        createCanvas(windowWidth/2, 600).parent("visualizacion");
+        createCanvas(windowWidth / 2, 600).parent("visualizacion");
         background(255);
         noStroke();
         textAlign(CENTER);
         rectMode(CENTER);
-        fill(90, 100, 250,85);
-                for (var m = 0; m < losPromedios.length; m++) {
-                     circulo = ellipse(width / 2, height / 2, losPromedios[m] * windowWidth/20, losPromedios[m] * windowWidth/20);
-                    
+        fill(90, 100, 250, 85);
+        for (var m = 0; m < losPromedios.length; m++) {
+            circulo = ellipse(width / 2, height / 2, losPromedios[m] * windowWidth / 20, losPromedios[m] * windowWidth / 20);
+
 
         }
         console.log(ramos);
 
-        for (var z = 0; z < 6; z++){
+        for (var z = 0; z < 6; z++) {
             console.log(ramos[z].nombre);
-            createElement("p", ramos[z].nombre + ': '+promediosListados[z]+ ' hrs.').parent("los-cursos").style("margin-bottom: 0px;").addClass("text-dark").id("losRamos" + z);
+            createElement("p", ramos[z].nombre + ': ' + promediosListados[z] + ' hrs.').parent("los-cursos").style("margin-bottom: 0px;").addClass("text-dark").id("losRamos" + z);
+        }
+
     }
-
-    }   
-
     </script>
 </body>
 
