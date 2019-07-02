@@ -4,6 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="autor" content="Fernando Catalán Bachiloglu">
+    <meta name="description" content="Esta página corresponde a la evaluación 02 del seminario de gráfica computacional I a cargo del profesor Felipe Cortez.">
+    <meta property="og:image" content="https://avatars1.githubusercontent.com/u/24626759?s=400&u=700c1ec8bf98726677e9eb2a437ec964f3c5a0ab&v=4">
+    <meta property="og:description" content="Esta página corresponde a la evaluación 02 del seminario de gráfica computacional I a cargo del profesor Felipe Cortez.">
+    <meta property="og:title" content="Mis visualizaciones">
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Mandali&display=swap" rel="stylesheet">
@@ -125,6 +130,7 @@
     var losPromedios = [];
     var promediosListados = [];
 
+
     $.getJSON("https://api.myjson.com/bins/qaz4x", function(data) {
         console.log(data);
         for (var i = 0; i < 6; i++) {
@@ -168,12 +174,13 @@
     var ramos;
     var losCursos = [];
     let circulo;
+    let color;
     var w;
     function preload(){
         let losDatos = 'https://api.myjson.com/bins/qaz4x'
         ramos = loadJSON(losDatos);
     }
-    // var losPromedios = [5.75, 5.5, 5.125, 5.125, 4.875, 3.875]; si pongo los promedios aquí, sí se dibuja, sino no
+
     function setup() {
 
         createCanvas(windowWidth/2, 600).parent("visualizacion");
@@ -183,7 +190,7 @@
         rectMode(CENTER);
         fill(90, 100, 250,85);
                 for (var m = 0; m < losPromedios.length; m++) {
-                    ellipse(width / 2, height / 2, losPromedios[m] * windowWidth/20, losPromedios[m] * windowWidth/20);
+                     circulo = ellipse(width / 2, height / 2, losPromedios[m] * windowWidth/20, losPromedios[m] * windowWidth/20);
                     
 
         }
@@ -191,7 +198,7 @@
 
         for (var z = 0; z < 6; z++){
             console.log(ramos[z].nombre);
-            createElement("p", ramos[z].nombre + ':        '+promediosListados[z]+ ' hrs.').parent("los-cursos").style("margin-bottom: 0px;").addClass("text-dark");
+            createElement("p", ramos[z].nombre + ': '+promediosListados[z]+ ' hrs.').parent("los-cursos").style("margin-bottom: 0px;").addClass("text-dark").id("losRamos" + z);
     }
 
     }   
