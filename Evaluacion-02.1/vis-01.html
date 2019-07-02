@@ -55,7 +55,7 @@
                     <div class="row no-gutters  rounded overflow-hidden flex-md-row mb-4 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
                             <h3 class="mb-3 blog-header font-weight-bold">Trabajo Global</h3>
-                            <p class="card-text mb-auto">Esta visualización corresponde a una comaparción global de todos mis cursos. Tiene como objetivo entender a qué ramo se le está dedicando una mayor cantidad de tiempo. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/inixb">este JSON</a>.</p>
+                            <p class="card-text mb-auto">Esta visualización corresponde a una comaparción global de todos mis cursos. Tiene como objetivo entender a qué ramo se le está dedicando una mayor cantidad de tiempo. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/qaz4x">este JSON</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                         <div class="col p-4 d-flex flex-column position-static">
                             <h5 class="mb-3 blog-header font-weight-bold">Cursos</h5>
                            
-                            <div id="los-cursos"> aqui deberia ir un texto </div>
+                            <div id="los-cursos"> <!-- Lo de aquí se parentea desde el script --> </div>
                             
                             <div class="row flex-nowrap justify-content-between">
                                 <div class="col-12 enlaces" id="cursos"><a href="vis-02.html">
@@ -81,13 +81,49 @@
         </div>
     </div>
     </div>
+
+    <nav class="navbar fixed-bottom navbar-expand-md navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Mis visualizaciones</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Portada</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="vis-01.html">Global</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vis-02.html">Semanal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vis-03.html">Casa/Viaje/FAU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vis-04.html">Ánimo</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="info.html">Info</a>
+          </li>                           
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
     var horas = [];
     var suma = [];
     var losPromedios = [];
+    var promediosListados = [];
 
     $.getJSON("https://api.myjson.com/bins/qaz4x", function(data) {
         console.log(data);
@@ -122,6 +158,7 @@
         var sextoCorte = (suma.slice(20, 24)).reduce(getSum) / 4;
         console.log(sextoCorte);
 
+        promediosListados.push(primerCorte, segundoCorte, tercerCorte, cuartoCorte, quintoCorte, sextoCorte);
         losPromedios.push(primerCorte, segundoCorte, tercerCorte, cuartoCorte, quintoCorte, sextoCorte);
         losPromedios.sort(function(a, b) { return b - a });
         console.log(losPromedios);
@@ -131,26 +168,31 @@
     var ramos;
     var losCursos = [];
     let circulo;
+    var w;
     function preload(){
         let losDatos = 'https://api.myjson.com/bins/qaz4x'
         ramos = loadJSON(losDatos);
     }
     // var losPromedios = [5.75, 5.5, 5.125, 5.125, 4.875, 3.875]; si pongo los promedios aquí, sí se dibuja, sino no
     function setup() {
+
         createCanvas(windowWidth/2, 600).parent("visualizacion");
         background(255);
         noStroke();
         textAlign(CENTER);
         rectMode(CENTER);
-        fill(100,0,0,50);
-        for (var m = 0; m < losPromedios.length; m++) {
-            ellipse(width / 2, height / 2, losPromedios[m] * windowWidth/15, losPromedios[m] * windowWidth/15);
+        fill(90, 100, 250,85);
+                for (var m = 0; m < losPromedios.length; m++) {
+                    ellipse(width / 2, height / 2, losPromedios[m] * windowWidth/20, losPromedios[m] * windowWidth/20);
+                    
+
         }
         console.log(ramos);
 
-        /*for (var z = 0; z < ramos.length; z++){
-            losCursos = losCursos.push(ramos[z].nombre);
-        }*/
+        for (var z = 0; z < 6; z++){
+            console.log(ramos[z].nombre);
+            createElement("p", ramos[z].nombre + ':        '+promediosListados[z]+ ' hrs.').parent("los-cursos").style("margin-bottom: 0px;").addClass("text-dark");
+    }
 
     }   
 

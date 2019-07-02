@@ -54,8 +54,8 @@
                 <div class="col">
                     <div class="row no-gutters  rounded overflow-hidden flex-md-row mb-4 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
-                            <h3 class="mb-3 blog-header font-weight-bold">Estado de animo</h3>
-                            <p class="card-text mb-auto">Esta visualización corresponde a los estados de ánimo registrados en Mayo con la aplicación Daylio. Junto con ello, las actividades que se realizaron esos días. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/rfqt1 ">este JSON</a>.</p>
+                            <h3 class="mb-3 blog-header font-weight-bold">Estado de ánimo</h3>
+                            <p class="card-text mb-auto">Esta visualización corresponde a los estados de ánimo registrados en Mayo con la aplicación Daylio. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/osw81 ">este JSON</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -81,9 +81,42 @@
         </div>
     </div>
     </div>
+
+     <nav class="navbar fixed-bottom navbar-expand-md navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Mis visualizaciones</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Portada</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="vis-01.html">Global</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vis-02.html">Semanal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vis-03.html">Casa/Viaje/FAU</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="vis-04.html">Ánimo</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="info.html">Info</a>
+          </li>                           
+        </ul>
+      </div>
+    </div>
+  </nav>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
     var elContadorIncreible = 0;
     var elContadorBien = 0;
@@ -97,34 +130,42 @@
     var elCanvas;
 
     function preload() {
-        let losDatos = 'https://api.myjson.com/bins/rfqt1'
+        let losDatos = 'https://api.myjson.com/bins/osw81'
         ramos = loadJSON(losDatos);
         console.log(ramos);
 
 
     }
     // var losPromedios = [Array(4) 0: 3.5 1: 5.75 2: 5.1666666666666673: 5.833333333333333length: 4]; si pongo los promedios aquí, sí se dibuja, sino no
+    var w;
     function setup() {
-        elCanvas = createCanvas(windowWidth, 400).parent("resultado");
+        var w = document.getElementById("resultado").offsetWidth;
+        elCanvas = createCanvas(w, 400).parent("resultado");
         background(255);
         noStroke();
         textAlign(CENTER);
         rectMode(CENTER);
 
+
         for (var m = 0; m < 31; m++) {
+
+
 
                 if (ramos[m].animo == "increible") {
                     fill(240, 20, 20);
                     elContadorIncreible += 1;
+                    fill(130, 163, 224);
                     circle(200, 300 / 2, elContadorIncreible * 20);
 
                 } else if (ramos[m].animo == "bien") {
                     fill(240, 80, 80);
                     elContadorBien += 1;
+                    fill(130, 163, 242);
                     circle(520, 300 / 2, elContadorBien * 20);
                 } else {
                     fill(240, 150, 150);
                     elContadorMeh += 1;
+                    fill(130, 163, 255);
                     circle(780, 300 / 2, elContadorMeh * 20);
                 }
 
@@ -152,8 +193,7 @@
                     text("Hubieron " + contadorFAUmeh + " días en los que me sentí meh! estando en la FAU", 780, 185, 120, 120);
                 }
 
-
-
+                console.log(ramos[m].actividades);
 
             
 
@@ -162,11 +202,11 @@
         console.log(elContadorIncreible);
         console.log(elContadorBien);
         console.log(elContadorMeh);
-        fill(240, 20, 20);
+        fill(130, 163, 224);
         text('¡Mi ánimo estuvo ' + elContadorIncreible + ' días increíble!', 200, 360);
-        fill(240, 80, 80);
+        fill(130, 163, 242);
         text('¡Mi ánimo estuvo ' + elContadorBien + ' días bien!', 520, 360);
-        fill(240, 150, 150);
+        fill(130, 163, 255);
         text('¡Mi ánimo estuvo ' + elContadorMeh + ' días meh!', 780, 360);
 
 

@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Asap+Condensed&display=swap');
+
+
       body {
           margin-top: 20px;
+          font-family: 'Asap Condensed', sans-serif;
+          font-weight: 50;
+
       }
 
       .blog-header {
@@ -9,7 +15,8 @@
       }
 
       .blog-header-logo {
-          font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+          font-family: 'Asap Condensed', sans-serif;
+          font-weight: 50;
           font-size: 2rem;
       }
 
@@ -24,7 +31,9 @@
       h5,
       h6,
       p {
-          font-family: 'Mandali', sans-serif;
+          font-family: 'Asap Condensed', sans-serif;
+          font-weight: 50;
+          margin-bottom: 0;
       }
 
       .display-4 {
@@ -45,31 +54,7 @@
         margin-top: -30px;
       }
 
-      .nav-scroller {
-          position: relative;
-          z-index: 2;
-          height: 2.75rem;
-          overflow-y: hidden;
-      }
 
-      .nav-scroller .nav {
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-          padding-bottom: 1rem;
-          margin-top: -1px;
-          overflow-x: auto;
-          text-align: center;
-          white-space: nowrap;
-          -webkit-overflow-scrolling: touch;
-      }
-
-      .nav-scroller .nav-link {
-          padding-top: .75rem;
-          padding-bottom: .75rem;
-          font-size: .875rem;
-      }
 
       .card-img-right {
           height: 100%;
@@ -94,9 +79,16 @@
 
 
     .g, .four-text{
-      font-size: 7rem;
+      font-size: 8rem;
       color: gray;
-      font-family: 'Roboto Slab', serif;
+      font-family: 'Asap Condensed', sans-serif;
+      font-weight: 500;
+  
+    }
+
+    li, .nav-link, .navbar-brand{
+      font-family: 'Asap Condensed', sans-serif;
+
     }
 
 

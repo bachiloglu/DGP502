@@ -45,7 +45,7 @@
                 </div>
             </header>
             <!-- Aquí va la visualización --->
-            <div class="rounded mover">
+            <div class="rounded mover pt-3 pl-5">
                 <div id="resultado"></div>
             </div>
             <!-- Hasta aquí la visualizacion -->
@@ -55,7 +55,7 @@
                     <div class="row no-gutters  rounded overflow-hidden flex-md-row mb-4 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
                             <h3 class="mb-3 blog-header font-weight-bold">Tiempo invertido</h3>
-                            <p class="card-text mb-auto">Esta visualización corresponde a una comparación entre el tiempo que paso en casa, la FAU y viajando hasta ella. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/134lsv">este JSON</a>.</p>
+                            <p class="card-text mb-auto">Esta visualización corresponde a una comparación entre el tiempo que paso en casa, la FAU y viajando hasta ella. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/osw81">este JSON</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                         <div class="col p-4 d-flex flex-column position-static">
                             <h5 class="mb-3 blog-header font-weight-bold">Cursos</h5>
                             <p class="mb-auto">
-                                <div class="los-cursos"></div>
+                                <div id="los-cursos"></div>
                             </p>
                             <div class="row flex-nowrap justify-content-between">
                                 <div class="col-6 enlaces"><a href="vis-02.html">
@@ -84,51 +84,87 @@
         </div>
     </div>
     </div>
+
+      <nav class="navbar fixed-bottom navbar-expand-md navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Mis visualizaciones</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Portada</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vis-01.html">Global</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vis-02.html">Semanal</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="vis-03.html">Casa/Viaje/FAU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vis-04.html">Ánimo</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="info.html">Info</a>
+          </li>                           
+        </ul>
+      </div>
+    </div>
+  </nav>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
     var paraMover=0;
     function preload() {
-        let losDatos = 'https://api.myjson.com/bins/134lsv'
+        let losDatos = 'https://api.myjson.com/bins/osw81'
         ramos = loadJSON(losDatos);
         console.log(ramos);
 
     }
     // var losPromedios = [Array(4) 0: 3.5 1: 5.75 2: 5.1666666666666673: 5.833333333333333length: 4]; si pongo los promedios aquí, sí se dibuja, sino no
     function setup() {
-        createCanvas(windowWidth, 500).parent("resultado");
+        createCanvas(windowWidth, 600).parent("resultado");
         background(255);
         noStroke();
         for (var m = 0; m < 31; m++) {
-            for (var i = 0; i < 3; i++) {
-                console.log(ramos[m].tiempo[i]);
 
                 fill(240, 100, 100);
 
 
-                rect(paraMover+100, 0, 25, (ramos[m].tiempo[i].casa)*20);
+                rect(paraMover, 0, windowWidth/70, (ramos[m].tiempo[0].casa)*20);
 
 
 
                 fill(113, 229, 123);
+                
 
 
-                rect(paraMover+100, 0, 25, (ramos[m].tiempo[i].viaje)*20);
+                rect(paraMover, (ramos[m].tiempo[0].casa)*20 , windowWidth/70, (ramos[m].tiempo[1].viaje)*20);
 
 
                 fill(100, 155, 240);
 
 
-                rect(paraMover+100, 0, 25, (ramos[m].tiempo[i].u)*20);
+                rect(paraMover, (ramos[m].tiempo[0].casa)*20    +   (ramos[m].tiempo[1].viaje)*20    , windowWidth/70,  (ramos[m].tiempo[2].u)*20 ) ;
 
 
 
-            }
+            
             //text('Semana ' + (m + 1), losPromedios[m]+ 100, 30);
-            paraMover+=30;
-            text(ramos[m].dia.charAt(1))
+            paraMover+=30*windowWidth/1900;
+            text(ramos[m].dia.substring(0,3), paraMover-22, 510);
         }
+
+        createElement("p", "En rojo: el tiempo que estuve en casa.").parent("los-cursos");
+        createElement("p", "En verde: el tiempo que estuve viajando.").parent("los-cursos");
+        createElement("p", "En azul: el tiempo que estuve en la FAU.").parent("los-cursos");
 
         //console.log(ramos);
 
