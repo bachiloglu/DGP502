@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ultraviolet/40/000000/edit.png">
+    <meta name="autor" content="Fernando Catalán Bachiloglu">
+    <meta name="description" content="Esta página corresponde a la evaluación 02 del seminario de gráfica computacional I a cargo del profesor Felipe Cortez.">
+    <meta property="og:image" content="https://avatars1.githubusercontent.com/u/24626759?s=400&u=700c1ec8bf98726677e9eb2a437ec964f3c5a0ab&v=4">
+    <meta property="og:description" content="Esta página corresponde a la evaluación 02 del seminario de gráfica computacional I a cargo del profesor Felipe Cortez.">
+    <meta property="og:title" content="Mis visualizaciones">
+    <meta property="og:type" content="website">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Mis visualizaciones">
+    <meta property="twitter:description" content="Esta página corresponde a la evaluación 02 del seminario de gráfica computacional I a cargo del profesor Felipe Cortez.">
+    <meta property="og:title" content="Mis visualizaciones">
+    <meta property="twitter:image" content="https://avatars1.githubusercontent.com/u/24626759?s=400&u=700c1ec8bf98726677e9eb2a437ec964f3c5a0ab&v=4">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Mandali&display=swap" rel="stylesheet">
+    <title>Trabajo académico</title>
+    <style>
+        .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    body {
+        margin-top: 20px;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <!--- Esta visualización compara el trabajo que exige cada ramo--->
+    <div class="container-fluid">
+        <div class="container">
+            <header class="blog-header py-2">
+                <div class="row flex-nowrap justify-content-between align-items-center">
+                    <div class="col-6 pt-1">
+                        <a class="blog-header-logo text-dark" href="index.html">Fernando Catalán Bachiloglu</a>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                        <a class="text-muted" href="info.html">info</a>
+                    </div>
+                </div>
+            </header>
+            <!-- Aquí va la visualización --->
+            <div class="rounded mover">
+                <div id="resultado"></div>
+            </div>
+            <!-- Hasta aquí la visualizacion -->
+            <!-- Aquí va lo de la izquierda -->
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="row no-gutters  rounded overflow-hidden flex-md-row mb-4 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <h3 class="mb-3 blog-header font-weight-bold">Horas por semana</h3>
+                            <p class="card-text mb-auto">Esta visualización corresponde a una comaparción semanal (4 semanas de Mayo) del tiempo dedicado tanto en sala como fuera de ella a los 6 cursos que estoy cursando. Los datos utilizados en esta visualización están almacenados en <a href="https://api.myjson.com/bins/qaz4x">este JSON</a>.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hasta aquí lo de la izquierda -->
+                <!--Aquí va lo de la derecha -->
+                <div class="col-md-4 mt-2">
+                    <div class="row no-gutters rounded overflow-hidden flex-md-row mb-4 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <h5 class="mb-3 blog-header font-weight-bold">Cursos</h5>
+                            <p class="mb-auto">
+                                <div id="los-cursos"></div>
+                            </p>
+                            <div class="row flex-nowrap justify-content-between">
+                                <div class="col-6"><a href="vis-01.html">
+                                        <p class="text-left enlaces">Anterior</p>
+                                    </a></div>
+                                <div class="col-6"><a href="vis-03.html">
+                                        <p class="text-right enlaces">Siguiente</p>
+                                    </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hasta aquí lo de la deracha -->
+            </div>
+        </div>
+    </div>
+    </div>
+    <nav class="navbar fixed-bottom navbar-expand-md navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Mis visualizaciones</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Portada</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vis-01.html">Global</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="vis-02.html">Semanal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vis-03.html">Casa/Viaje/FAU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vis-04.html">Ánimo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="info.html">Info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+    var horas = [];
+    var suma = [];
+    var losPromedios = [];
+    var semanaUno = [];
+    var semanaDos = [];
+    var semanaTres = [];
+    var semanaCuatro = [];
+
+    $.getJSON("https://api.myjson.com/bins/qaz4x", function(data) {
+        console.log(data);
+        for (var i = 0; i < 6; i++) {
+            for (var j = 0; j < 1; j++) {
+
+                var x = data[i].dedicacion[0];
+                semanaUno.push(x);
+
+                var x = data[i].dedicacion[1];
+                semanaDos.push(x);
+
+                var x = data[i].dedicacion[2];
+                semanaTres.push(x);
+
+                var x = data[i].dedicacion[3];
+                semanaCuatro.push(x);
+
+
+            }
+
+
+        }
+        console.log(semanaUno);
+        console.log(semanaDos);
+        console.log(semanaTres);
+        console.log(semanaCuatro);
+
+
+        function getSum(total, num) {
+            return (total + num)
+        }
+
+        semanaUno = semanaUno.reduce(getSum);
+        console.log(semanaUno);
+        semanaDos = semanaDos.reduce(getSum);
+        console.log(semanaDos);
+        semanaTres = semanaTres.reduce(getSum);
+        console.log(semanaTres);
+        semanaCuatro = semanaCuatro.reduce(getSum);
+        console.log(semanaCuatro);
+
+        losPromedios.push(semanaUno, semanaDos, semanaTres, semanaCuatro);
+        console.log(losPromedios);
+    })
+    </script>
+    <script>
+    var ramos;
+    var losCursos = [];
+    var w;
+    // let circulo;
+
+    function preload() {
+        let losDatos = 'https://api.myjson.com/bins/qaz4x'
+        ramos = loadJSON(losDatos);
+    }
+
+    function setup() {
+        var w = document.getElementById("resultado").offsetWidth;
+        createCanvas(w, 400).parent("resultado").style("padding-left: 10%");
+        background(255);
+        noStroke();
+        textAlign(CENTER);
+        rectMode(CENTER);
+
+        for (var m = 0; m < losPromedios.length; m++) {
+            fill(130, 163, 224);
+            rect(0, 100 + (m * 70), losPromedios[m] * (windowWidth / 50), windowHeight / 15);
+            fill(0, 0, 0);
+            textFont('Arial');
+            textSize(12);
+            text('Semana ' + (m + 1) + ':  ' + losPromedios[m] + ' horas dedicadas al trabajo académico.', 170, 105 + (m * 70));
+
+        }
+
+        for (var z = 0; z < 6; z++) {
+            console.log(ramos[z].nombre);
+            createElement("p", ramos[z].nombre).parent("los-cursos").style("margin-bottom: 0px;").addClass("text-dark");
+        }
+
+
+    }
+    </script>
+</body>
+
+</html>

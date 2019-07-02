@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Asap+Condensed&display=swap');
+
+
+      body {
+          margin-top: 20px;
+          font-family: 'Asap Condensed', sans-serif;
+          font-weight: 50;
+
+      }
+
+      .blog-header {
+          line-height: 1;
+          border-bottom: 1px solid #e5e5e5;
+        
+      }
+
+      .blog-header-logo {
+          font-family: 'Asap Condensed', sans-serif;
+          font-weight: 50;
+          font-size: 2rem;
+      }
+
+      .blog-header-logo:hover {
+          text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+          font-family: 'Asap Condensed', sans-serif;
+          font-weight: 50;
+          margin-bottom: 0;
+      }
+
+      .display-4 {
+          font-size: 2.5rem;
+      }
+
+      @media (min-width: 768px) {
+          .display-4 {
+              font-size: 3rem;
+          }
+      }
+
+      .mover {
+          margin-top: 20px;
+      }
+
+      .subir {
+        margin-top: -30px;
+      }
+
+
+
+      .card-img-right {
+          height: 100%;
+          border-radius: 0 3px 3px 0;
+      }
+
+      .flex-auto {
+          -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+      }
+
+      .h-250 {
+          height: 250px;
+      }
+
+      @media (min-width: 768px) {
+          .h-md-250 {
+              height: 250px;
+          }
+      }
+
+
+
+    .g, .four-text{
+      font-size: 8rem;
+      color: gray;
+      font-family: 'Asap Condensed', sans-serif;
+      font-weight: 500;
+  
+    }
+
+    li, .nav-link, .navbar-brand{
+      font-family: 'Asap Condensed', sans-serif;
+
+    }
+
+
+
+
+    .fotoA {
+      color: white;
+      background: url(https://i.pinimg.com/originals/25/22/39/252239b6ba51eabf0acb67dd0ead8fe2.jpg) no-repeat;
+      opacity: 1;
+      background-size: 900px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .fotoA:hover{
+      opacity: 0.8;
+      webkit-transition:0,5s;
+    }
+
+    .fotoB {
+      color: white;
+      background: url(https://ih1.redbubble.net/image.497181819.6082/pp,550x550.u1.jpg) no-repeat;
+      opacity: 1;
+      background-size: 1000px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .fotoB:hover{
+      opacity: 0.8;
+      webkit-transition:0,5s;
+    }
+
+    .fotoC {
+      color: white;
+      background: url(https://www.servicoloriberia.com/wp-content/uploads/2016/08/course-746022_1280.jpg) no-repeat;
+      opacity: 1;
+      background-size: 900px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .fotoC:hover{
+      opacity: 0.8;
+      -webkit-transition:0,5s;
+    }
+
+    .fotoD {
+      color: white;
+      background: url(https://st3.depositphotos.com/8159024/18277/v/600/depositphotos_182775736-stock-video-multicolored-motion-gradient-background.jpg) no-repeat;
+      opacity: 1;
+      background-size: 900px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .fotoD:hover{
+      opacity: 0.8;
+      webkit-transition:0,5s;
+    }
+
+
+   .enlaces{
+      text-decoration: none;
+      color: #959595;
+   }
+
+   .enlaces:hover{
+    text-decoration: none;
+    color: #454545;
+   }
