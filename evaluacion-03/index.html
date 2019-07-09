@@ -9,7 +9,7 @@
     Sumen un favicon y metadatos descriptivos (Open Graph y Twitter)
     No olviden una imagen para mostrar (esto es distinto del favicon)
     -->
-    <title>GRUPO X</title>
+    <title>GRUPO C</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
   </head>
@@ -19,15 +19,15 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">GRUPO X</h4>
-          <p class="text-muted">A la cabeza de este grupo está [Nombre Apellido], y nuestras visualizaciones tratan sobre [este tema en específico, distinto de la carga académica], que [justificación de su trabajo con ese tema].</p>
+          <h4 class="text-white">GRUPO C</h4>
+          <p class="text-muted">A la cabeza de este grupo está Sofi Yastrmiz, y nuestras visualizaciones tratan sobre la calidad de vida de cada uno de les integrantes del grupo. Lo completan Fernando Catalán, Cristina Grandón, Julio Lara y Benjamín Vidal. Intentaremos mostrarles un poco de cómo dormimos, comemos y viajamos.</p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4 class="text-white">Visualizaciones</h4>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Primera visualización</a></li>
-            <li><a href="#" class="text-white">Segunda visualización</a></li>
-            <li><a href="#" class="text-white">Tercera visualización</a></li>
+            <li><a href="#" class="text-white">Horas de Sueño</a></li>
+            <li><a href="#" class="text-white">Chatarra y casera</a></li>
+            <li><a href="#" class="text-white">Tiempo de viaje</a></li>
           </ul>
         </div>
       </div>
@@ -36,7 +36,7 @@
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-between">
       <a href="index.html" class="navbar-brand d-flex align-items-center">
-        <strong>GRUPO X</strong>
+        <strong>GRUPO C</strong>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
       <p class="lead text-muted">En esta página podrás encontrar tres visualizaciones de cinco estudiantes de diseño de la FAU. Estas nos dan indicios primarios de la calidad de vida de cada uno de los estudiantes. ¿Cuánto duermen?, ¿qué comen? y ¿cuánto viajan? son respuestas que podrás resolver entrando a los links de la sección de abajo.</p>
     </div>
   </section>
-  <div class="py-5 bg-light">
+  <div class="py-5">
     <div class="container">
     	<!-- Explicación y vínculo a la primera visualización -->
     	<div class="row justify-content-center no-gutters">
@@ -121,10 +121,11 @@
 
 <footer class="text-muted">
   <div class="container">
-    <p class="float-right">
+    <p class="float-right pt-3">
       <a href="#">&uarr; Subir</a>
     </p>
-    <p>Favor cambien este texto por algo que haga sentido.</p>
+
+    <div class="pt-3"><p>Esperamos de todo corazón, que comas, duermas y viajes más y mejor que nosotres. Gracias por pasar por aquí.</p></div>
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -136,13 +137,13 @@
 <script>
 var integrantes;
 function preload(){
-  integrantes = loadJSON("https://api.myjson.com/bins/1cqiin");
+  integrantes = loadJSON("https://api.myjson.com/bins/zch4f");
   console.log(integrantes);
 }
 function setup(){
   for (var x = 0; x < 5; x++){
     var tarjeta = createDiv('').class('card').parent('grupal');
-    tarjeta.html('<img class="card-img-top" src="'+ integrantes[x]["pic"] +'"><div class="card-body"><p><strong>' + integrantes[x]["name"] + '.</strong> ' + integrantes[x]["about"] + '</p></div>', true);
+    tarjeta.html('<img class="card-img-top" src="'+ integrantes[x]["pic"] +'"><div class="card-body"><p><strong>' + integrantes[x]["name"] + '.</strong> ' + integrantes[x]["about"] + '</p></div>' + '<div class="text-center pb-3">'+"<a href=\"" + integrantes[x]["ig"] + "\" target=\"_blank\" class=\"btn btn-light \">Instagram</a>" + '</div>', true); 
   }
 }
 </script>
